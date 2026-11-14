@@ -16,7 +16,9 @@ def load_all_models():
     rf_path = os.path.join(MODELS_DIR, "random_forest.joblib")
     svm_path = os.path.join(MODELS_DIR, "svm.joblib")
     mlp_path = os.path.join(MODELS_DIR, "mlp_ann.joblib")
+    robust_path = os.path.join(MODELS_DIR, "robust_random_forest.joblib")
     prep_path = os.path.join(MODELS_DIR, "preprocessor.joblib")
+    shap_path = os.path.join(MODELS_DIR, "shap_explainer.joblib")
 
     if os.path.exists(rf_path):
         models["Random Forest"] = joblib.load(rf_path)
@@ -24,8 +26,12 @@ def load_all_models():
         models["SVM (RBF)"] = joblib.load(svm_path)
     if os.path.exists(mlp_path):
         models["MLP (ANN)"] = joblib.load(mlp_path)
+    if os.path.exists(robust_path):
+        models["Robust Random Forest"] = joblib.load(robust_path)
     if os.path.exists(prep_path):
         models["Preprocessor"] = joblib.load(prep_path)
+    if os.path.exists(shap_path):
+        models["SHAP Explainer"] = joblib.load(shap_path)
 
     return models
 
